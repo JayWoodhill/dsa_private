@@ -1,11 +1,11 @@
-Problem 2
+Problem 2  
 Global Solutions in Computational Fluid Dynamics 
 
 Given the following statements, eich define 1) the momentum of liquid flow in 3-dimensions, and 2) the incompressibility of liquids over time
 
 ![alt text](image.png)
 
-Where:
+Where:  
 ![alt text](image-1.png)
 
 i) Prove that a smooth solution U(x,t) and associated pressure p(x,t), exists for all t

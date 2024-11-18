@@ -1,0 +1,39 @@
+import csv
+import random
+import tkinter as tk
+from tkinter import filedialog
+
+def generate_random_grid(max_size=15, max_colors=4):
+    rows = random.randint(1, max_size)
+    cols = random.randint(1, max_size)
+    grid = [[random.randint(1, max_colors) for _ in range(cols)] for _ in range(rows)]
+    return rows, cols, grid
+
+def flatten_grid(grid):
+    return [cell for row in grid for cell in row]
+
+def generate_grids_csv(num_grids=100, max_size=15, max_colors=4):
+    root = tk.Tk()
+    root.withdraw()n
+    filetypes = [('CSV files', '*.csv'), ('All files', '*.*')]
+    filename = filedialog.asksaveasfilename(
+        title="Select Output File Location",
+        defaultextension='.csv',
+        filetypes=filetypes
+    )
+    if not filename:
+        print("No file selected. Operation cancelled.")
+        return
+
+    with open(filename, mode='w', newline='') as csvfile:
+        csv_writer = csv.writer(csvfile)
+
+        for _ in range(num_grids):
+            rows, cols, grid = generate_random_grid(max_size, max_colors)
+            flattened_grid = flatten_grid(grid)
+            # Write the grid to CSV: [rows, cols, cell1, cell2, ..., cellN]
+            csv_writer.writerow([rows, cols] + flattened_grid)
+
+    print(f"Generated {num_grids} grids and saved to '{filename}'.")
+
+generate_grids_csv(num_grids=100, max_size=15, max_colors=4)

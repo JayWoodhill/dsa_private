@@ -1,5 +1,4 @@
 # main.py
-
 import os
 from reader import load_grids_from_images
 from config.config_functions import profile_function, system_info

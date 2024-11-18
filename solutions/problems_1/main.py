@@ -1,7 +1,7 @@
 # main.py
 import os
 from reader import load_grids_from_images
-from config.config_functions import profile_function, system_info
+#from config.config_functions import profile_function, system_info
 from problem1_solver import largest_contiguous_block
 
 # Define the color map used in image generation
@@ -18,7 +18,7 @@ color_map = {
     10: (0, 0, 0),      # Black
 }
 
-# image source
+'''# image source
 folder_path = 'dsa_private/problems/problem1_grids'
 
 system_info()
@@ -31,3 +31,13 @@ for idx, grid in enumerate(grids):
         max_block_size = largest_contiguous_block(grid)
         print(f"Grid #{idx + 1}: Largest contiguous block area is {max_block_size}")
     process_grid(grid, idx)
+'''
+
+# Image source
+folder_path = 'dsa_private/problems/problem1_grids'
+
+grids = load_grids_from_images(folder_path, color_map)
+
+for idx, grid in enumerate(grids):
+    max_block_size = largest_contiguous_block(grid)
+    print(f"Grid #{idx + 1}: Largest contiguous block area is {max_block_size}")
